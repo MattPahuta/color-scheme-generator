@@ -1,0 +1,141 @@
+/* font-family: 'Roboto', sans-serif; */
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+  font-size: var(--fs-400);
+  line-height: 1.5;
+  color: #151515;
+}
+
+.container {
+  margin: 0 auto;
+  width: 600px;
+  height: 600px;
+  border: 2px solid black;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+header {
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.color-select-container {
+  padding: 1rem .5em;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.color-result-container {
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: minmax(500px, 1fr);
+}
+
+/* color selection section styles */
+input,
+select,
+button {
+  height: 2.625rem;
+  border-radius: 5px;
+}
+
+#color-input {
+  border: 2px solid #ddd;
+  background-color: #fff;
+  width: 60px;
+}
+
+#scheme-select {
+  flex-grow: 2;
+  border: 2px solid #ddd;
+}
+
+#get-scheme-btn {
+  outline: none;
+  border: 2px solid #ddd;
+  padding: 0 1rem;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+#get-scheme-btn:hover {
+  background-color: #ddd;
+}
+
+#get-schem-btn:active {
+  transform: translate(0, 0.3rem);
+}
+
+.color-result {
+  height: 100%;
+  width: 100%;
+}
+
+.color {
+  height: 100%;
+  width: 100%;
+}
+
+.color-one {
+  background-color: tomato;
+}
+
+.color-two {
+  background-color: black;
+}
+
+.color-three {
+  background-color: cornsilk;
+}
+
+.color-four {
+  background-color: seagreen;
+}
+
+.color-five {
+  background-color: violet;
+}
