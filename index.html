@@ -14,15 +14,14 @@
   <header>
     <h1>Color Scheme Generator</h1>
   </header>
-  <main>
-    <div class="container">
+  <main class="container">
 
       <div class="color-select-container flex">
-
+        <!-- color picker -->
         <div>
-          <input type="color" id="color-input" name="color-input" value="#F55A5A">
+          <input type="color" id="color-input" name="color-input" value="#f55a5a">
         </div>
-
+        <!-- select color scheme -->
         <select name="color-schemes" id="scheme-select">
           <option value="monochrome">Monochrome</option>
           <option value="monochrome-dark">Monochrome-dark</option>
@@ -31,37 +30,23 @@
           <option value="complement">Complement</option>
           <option value="analogic-complement">Analogic-complement</option>
           <option value="triad">Triad</option>
+          <option value="quad">Quad</option>
         </select>
-
+        <!-- add count select (future) -->
+        <!-- <select name="" id="count-select">
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+        </select> -->
+        <!-- generate color scheme button -->
         <button id="get-scheme-btn">Get color scheme</button>
 
       </div>
 
-      <div class="color-result-container grid">
-        <div class="color-result">
-          <div class="color color-one">Color 1</div>
-          <div class="color-code">#151254</div>
-        </div>
-        <div class="color-result">
-          <div class="color color-two">Color 2</div>
-          <div class="color-code">#151254</div>
-        </div>
-        <div class="color-result">
-          <div class="color color-three">Color 3</div>
-          <div class="color-code">#151254</div>
-        </div>
-        <div class="color-result">
-          <div class="color color-four">Color 4</div>
-          <div class="color-code">#151254</div>
-        </div>
-        <div class="color-result">
-          <div class="color color-five">Color 5</div>
-          <div class="color-code">#151254</div>
-        </div>
+      <div class="color-result-container grid" id="color-results-grid">
+
       </div>
-
-    </div>
-
 
   </main>
   

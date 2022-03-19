@@ -45,8 +45,8 @@ body {
 
 .container {
   margin: 0 auto;
-  width: 600px;
-  height: 600px;
+  width: 100%;
+  max-width: 750px;
   border: 2px solid black;
 }
 
@@ -70,10 +70,7 @@ header {
   gap: 1rem;
 }
 
-.color-result-container {
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: minmax(500px, 1fr);
-}
+
 
 /* color selection section styles */
 input,
@@ -110,32 +107,31 @@ button {
   transform: translate(0, 0.3rem);
 }
 
-.color-result {
-  height: 100%;
+
+/* ******************************** */
+/* *          COLOR BARS          * */
+/* ******************************** */
+
+.color-result-container {
   width: 100%;
+  margin-top: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+  grid-template-rows: 60vh 5vh;
 }
 
-.color {
-  height: 100%;
-  width: 100%;
+.color-bar {
+  grid-row: 1 / 2;
 }
 
-.color-one {
-  background-color: tomato;
+.hex-code-div {
+  grid-row: 2 / 3;
+  justify-content: center;
+  align-items: center;
 }
 
-.color-two {
-  background-color: black;
-}
-
-.color-three {
-  background-color: cornsilk;
-}
-
-.color-four {
-  background-color: seagreen;
-}
-
-.color-five {
-  background-color: violet;
+.hex-code-div p:hover,
+.hex-code-div p:active {
+  cursor: pointer;
+  font-size: 1.125rem;
+  font-weight: 700;
 }
