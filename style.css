@@ -40,14 +40,20 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: var(--fs-400);
   line-height: 1.5;
-  color: #151515;
+  color: #fff;
+  background-color: #1F293A;
 }
 
-.container {
+main {
+  padding: 0 .5rem;
+}
+
+.wrapper {
   margin: 0 auto;
   width: 100%;
   max-width: 750px;
-  border: 2px solid black;
+  border: 3px solid #ddd;
+  border-radius: 5px;
 }
 
 .flex {
@@ -63,13 +69,17 @@ header {
   text-align: center;
 }
 
+h1 {
+  font-size: 1.75em;
+}
+
 .color-select-container {
-  padding: 1rem .5em;
+  padding: 1.5rem 1rem;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  flex-wrap: wrap;
 }
-
 
 
 /* color selection section styles */
@@ -81,41 +91,53 @@ button {
 }
 
 #color-input {
-  border: 2px solid #ddd;
-  background-color: #fff;
+  /* border: 2px solid #ddd; */
+  background-color: #ddd;
   width: 60px;
+}
+
+select {
+  border: 2px solid #ddd;
+  padding-left: .25rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #fff;
+  background: transparent;
 }
 
 #scheme-select {
   flex-grow: 2;
-  border: 2px solid #ddd;
+}
+
+#count-select {
+  
 }
 
 #get-scheme-btn {
+  flex-grow: 2;
   outline: none;
   border: 2px solid #ddd;
   padding: 0 1rem;
   cursor: pointer;
-  background-color: #fff;
-}
-
-#get-scheme-btn:hover {
+  color: #1F293A;
   background-color: #ddd;
 }
 
-#get-schem-btn:active {
+#get-scheme-btn:hover {
+  color: #fff;
+  background-color: #1F293A;
+  border: 2px solid #fff;
+}
+
+#get-scheme-btn:active {
   transform: translate(0, 0.3rem);
 }
 
 
-/* ******************************** */
-/* *          COLOR BARS          * */
-/* ******************************** */
-
+/* Color Scheme Bars and Hex Codes */
 .color-result-container {
   width: 100%;
-  margin-top: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(25px, 1fr));
   grid-template-rows: 60vh 5vh;
 }
 
@@ -129,9 +151,33 @@ button {
   align-items: center;
 }
 
+.hex-code-div p {
+  font-size: 11px;
+}
+
 .hex-code-div p:hover,
 .hex-code-div p:active {
   cursor: pointer;
-  font-size: 1.125rem;
   font-weight: 700;
+}
+
+@media (min-width: 40em) {
+
+  h1 {
+    font-size: 2.25em;
+  }
+
+  #get-scheme-btn {
+    flex-grow: 1;
+  }
+
+  .color-result-container {
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+  }
+
+  .hex-code-div p {
+    font-size: 1rem;
+  }
+
+  
 }

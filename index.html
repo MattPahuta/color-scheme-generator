@@ -14,15 +14,15 @@
   <header>
     <h1>Color Scheme Generator</h1>
   </header>
-  <main class="container">
-
+  <main>
+    <div class="wrapper">
       <div class="color-select-container flex">
         <!-- color picker -->
         <div>
           <input type="color" id="color-input" name="color-input" value="#f55a5a">
         </div>
         <!-- select color scheme -->
-        <select name="color-schemes" id="scheme-select">
+        <select name="scheme-select" id="scheme-select">
           <option value="monochrome">Monochrome</option>
           <option value="monochrome-dark">Monochrome-dark</option>
           <option value="monochrome-light">Monochrome-light</option>
@@ -33,21 +33,18 @@
           <option value="quad">Quad</option>
         </select>
         <!-- add count select (future) -->
-        <!-- <select name="" id="count-select">
+        <select name="count-select" id="count-select">
           <option value="5">5</option>
           <option value="6">6</option>
           <option value="7">7</option>
           <option value="8">8</option>
-        </select> -->
+        </select>
         <!-- generate color scheme button -->
         <button id="get-scheme-btn">Get color scheme</button>
-
       </div>
-
       <div class="color-result-container grid" id="color-results-grid">
-
       </div>
-
+    </div>
   </main>
   
 
