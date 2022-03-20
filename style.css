@@ -1,5 +1,3 @@
-/* font-family: 'Roboto', sans-serif; */
-
 /* Reset */
 *,
 *::before,
@@ -73,6 +71,14 @@ h1 {
   font-size: 1.75em;
 }
 
+footer {
+  margin-top: auto;
+  padding: 1.5rem .5rem;
+}
+
+.attribution { font-size: 13px; text-align: center; }
+.attribution a { color: hsl(51, 94%, 61%); }
+
 .color-select-container {
   padding: 1.5rem 1rem;
   align-items: center;
@@ -80,7 +86,6 @@ h1 {
   gap: 1rem;
   flex-wrap: wrap;
 }
-
 
 /* color selection section styles */
 input,
@@ -109,10 +114,6 @@ select {
   flex-grow: 2;
 }
 
-#count-select {
-  
-}
-
 #get-scheme-btn {
   flex-grow: 2;
   outline: none;
@@ -132,7 +133,6 @@ select {
 #get-scheme-btn:active {
   transform: translate(0, 0.3rem);
 }
-
 
 /* Color Scheme Bars and Hex Codes */
 .color-result-container {
@@ -178,6 +178,5 @@ select {
   .hex-code-div p {
     font-size: 1rem;
   }
-
   
 }
