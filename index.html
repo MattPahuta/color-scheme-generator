@@ -5,23 +5,47 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Color Scheme Generator</title>
+  <!-- add favicon -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>Color Scheme Generator</h1>
+    <h1 class="sr-only">Color Scheme Generator</h1>
+    <div class="form-container">
+      <form class="scheme-form">
+        <div class="input-container">
+          <input type="color" id="color-input" class="seed-color" name="color-input" value="#f55a5a">
+          <!-- select color scheme -->
+          <select name="scheme-select" id="scheme-select" class="scheme-select">
+            <option value="monochrome">Monochrome</option>
+            <option value="monochrome-dark">Monochrome-dark</option>
+            <option value="monochrome-light">Monochrome-light</option>
+            <option value="analogic">Analogic</option>
+            <option value="complement">Complement</option>
+            <option value="analogic-complement">Analogic-complement</option>
+            <option value="triad">Triad</option>
+            <option value="quad">Quad</option>
+          </select>
+        </div>
+        <!-- generate color scheme button -->
+        <button id="get-scheme-btn" class="button">Get color scheme</button>
+      </form>
+    </div>
   </header>
+
   <main>
+    <div class="colors-container"></div>
+  </main>
+
+  <!-- <main>
     <div class="wrapper">
       <div class="color-select-container flex">
-        <!-- color picker -->
         <div>
           <input type="color" id="color-input" name="color-input" value="#f55a5a">
         </div>
-        <!-- select color scheme -->
         <select name="scheme-select" id="scheme-select">
           <option value="monochrome">Monochrome</option>
           <option value="monochrome-dark">Monochrome-dark</option>
@@ -32,21 +56,19 @@
           <option value="triad">Triad</option>
           <option value="quad">Quad</option>
         </select>
-        <!-- add count select (future) -->
         <select name="count-select" id="count-select">
           <option value="5">5</option>
           <option value="6">6</option>
           <option value="7">7</option>
           <option value="8">8</option>
         </select>
-        <!-- generate color scheme button -->
         <button id="get-scheme-btn">Get color scheme</button>
       </div>
       <div class="color-result-container grid" id="color-results-grid">
       </div>
     </div>
-  </main>
-  
+  </main> -->
+
   <footer>
     <div class="attribution">
       Solo Project from <a href="https://www.scrimba.com" target="_blank">Scrimba</a>. 
@@ -54,6 +76,6 @@
     </div>
   </footer>
 
-  <script src="app.js"></script>
+  <!-- <script src="app.js"></script> -->
 </body>
 </html>

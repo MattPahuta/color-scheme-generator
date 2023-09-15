@@ -1,50 +1,140 @@
-/* Reset */
-*,
-*::before,
-*::after {
+/* **************** */
+/* Custom Variables */
+/* **************** */
+:root {
+  /* 
+  font-family: 'Poppins', sans-serif; 
+  font-family: 'Nunito', sans-serif; */
+  /* FONTS */
+  --ff-primary: 'Poppins', Arial, Helvetica, sans-serif;
+  /* FONT SIZES */
+  --fs-300: 0.9125rem;
+  --fs-400: 1rem;
+  --fs-500: 1.25rem;
+  --fs-600: 2rem;
+  --fs-700: 2.125rem;
+  --fs-800: 2.5rem;
+  /* Font Weights */
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-600: 600;
+  
+  /* COLORS */
+  /* Primary Colors */
+  --clr-green: hsl(88, 27%, 44%);
+  --clr-dark-green: hsl(145, 41%, 22%);
+  --clr-light-blue: hsl(194, 29%, 46%);
+  --clr-yellow: hsl(42, 100%, 66%);
+  --clr-red: hsl(8, 55%, 39%);
+
+  /* Neutral Colors */
+  --clr-pure-white: hsl(0, 0%, 100%);
+  --clr-silver: hsl(0, 0%, 80%);
+  --clr-dark-gray: hsl(0, 0%, 31%);
+  --clr-gunmetal: hsl(185, 14%, 17%);
+  --clr-rich-black: hsl(218, 22%, 7%);
+  --clr-pure-black: hsl(0, 0%, 0%);
+
+  /* BORDER RADIUS */
+  --br-soft: 8px;
+  --br-round: 50%;
+  
+
+}
+
+/* RESET */
+/* Josh Comeau custom css reset */
+/* https://www.joshwcomeau.com/css/custom-css-reset/ */
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-figure,
-blockquote,
-dl,
-dd {
+* {
   margin: 0;
 }
 
-img,
-picture {
-  max-width: 100%;
-  display: block;
+html, body {
+  height: 100%;
 }
 
-input,
-button,
-textarea,
-select {
+body {
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
   font: inherit;
 }
 
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+#root, #__next {
+  isolation: isolate;
+}
+
+/* Base Styles */
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--ff-primary);
   font-size: var(--fs-400);
-  line-height: 1.5;
-  color: #fff;
-  background-color: #1F293A;
+  background-color: var(--clr-light-blue);
+  color: var(--clr-dark-gray);
 }
 
-main {
-  padding: 0 .5rem;
+
+/* Utility Classes and Components */
+.sr-only {
+  position: absolute;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0,0,0,0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
+
+button.button {
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  padding: 0;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--clr-gunmetal);
+  color: var(--clr-pure-white);
+  border-radius: var(--br-soft);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+
+  padding: 0.25em 0.75em;
+  min-width: 10ch;
+  min-height: 44px;
+
+  text-align: center;
+  line-height: 1.1;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  button.button {
+    border: 2px solid currentcolor;
+  }
+}
+
 
 .wrapper {
   margin: 0 auto;
@@ -54,22 +144,6 @@ main {
   border-radius: 5px;
 }
 
-.flex {
-  display: flex;
-}
-
-.grid {
-  display: grid;
-}
-
-header {
-  padding: 1rem 0;
-  text-align: center;
-}
-
-h1 {
-  font-size: 1.75em;
-}
 
 footer {
   margin-top: auto;
@@ -77,62 +151,45 @@ footer {
 }
 
 .attribution { font-size: 13px; text-align: center; }
-.attribution a { color: hsl(51, 94%, 61%); }
+.attribution a { color: var(--clr-red); }
 
-.color-select-container {
-  padding: 1.5rem 1rem;
+/* use kevin powell even columns w/flex box styling */
+
+.form-container {
+  padding: 1.5em;
+}
+
+.scheme-form {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
+  gap: 1em;
+  outline: 1px solid red;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 1em;
+}
+
+.seed-color {
+  
+}
+
+.scheme-select {
+  border: 2px solid #ddd;
+  padding-left: .25em;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  color: #fff;
+  background: transparent;
+
 }
 
 /* color selection section styles */
-input,
-select,
-button {
-  height: 2.625rem;
-  border-radius: 5px;
-}
 
-#color-input {
-  /* border: 2px solid #ddd; */
-  background-color: #ddd;
-  width: 60px;
-}
 
-select {
-  border: 2px solid #ddd;
-  padding-left: .25rem;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  color: #fff;
-  background: transparent;
-}
-
-#scheme-select {
-  flex-grow: 2;
-}
-
-#get-scheme-btn {
-  flex-grow: 2;
-  outline: none;
-  border: 2px solid #ddd;
-  padding: 0 1rem;
-  cursor: pointer;
-  color: #1F293A;
-  background-color: #ddd;
-}
-
-#get-scheme-btn:hover {
-  color: #fff;
-  background-color: #1F293A;
-  border: 2px solid #fff;
-}
-
-#get-scheme-btn:active {
-  transform: translate(0, 0.3rem);
-}
 
 /* Color Scheme Bars and Hex Codes */
 .color-result-container {
@@ -161,22 +218,3 @@ select {
   font-weight: 700;
 }
 
-@media (min-width: 40em) {
-
-  h1 {
-    font-size: 2.25em;
-  }
-
-  #get-scheme-btn {
-    flex-grow: 1;
-  }
-
-  .color-result-container {
-    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
-  }
-
-  .hex-code-div p {
-    font-size: 1rem;
-  }
-  
-}
