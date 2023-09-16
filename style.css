@@ -21,21 +21,22 @@
   
   /* COLORS */
   /* Primary Colors */
-  --clr-green: hsl(88, 27%, 44%);
-  --clr-dark-green: hsl(145, 41%, 22%);
-  --clr-light-blue: hsl(194, 29%, 46%);
-  --clr-yellow: hsl(42, 100%, 66%);
-  --clr-red: hsl(8, 55%, 39%);
+  --clr-space-cadet: #1F2041;
+  --clr-light-blue: #A6D9F7;
+  --clr-purple: #4B3F72;
+  --clr-african-violet: #A393BF;
+  --clr-green: #417B5A;
+
 
   /* Neutral Colors */
-  --clr-pure-white: hsl(0, 0%, 100%);
-  --clr-silver: hsl(0, 0%, 80%);
-  --clr-dark-gray: hsl(0, 0%, 31%);
-  --clr-gunmetal: hsl(185, 14%, 17%);
-  --clr-rich-black: hsl(218, 22%, 7%);
-  --clr-pure-black: hsl(0, 0%, 0%);
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-white-smoke: #F0F2EF;
+  --clr-silver: hsl(0, 0%, 80%); 
+
+  --clr-black: hsl(0, 0%, 0%);
 
   /* BORDER RADIUS */
+  --br-extra-soft: 4px;
   --br-soft: 8px;
   --br-round: 50%;
   
@@ -86,8 +87,8 @@ body {
   flex-direction: column;
   font-family: var(--ff-primary);
   font-size: var(--fs-400);
-  background-color: var(--clr-light-blue);
-  color: var(--clr-dark-gray);
+  background-color: var(--clr-space-cadet);
+  color: var(--clr-pure-white);
 }
 
 
@@ -116,15 +117,16 @@ button.button {
   align-items: center;
   justify-content: center;
 
-  background-color: var(--clr-gunmetal);
-  color: var(--clr-pure-white);
-  border-radius: var(--br-soft);
+  background-color: var(--clr-light-blue);
+  color: var(--clr-black);
+  border-radius: 4px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
 
   padding: 0.25em 0.75em;
+  width: 100%;
   min-width: 10ch;
   min-height: 44px;
-
+  font-weight: var(--fw-500);
   text-align: center;
   line-height: 1.1;
 }
@@ -135,25 +137,21 @@ button.button {
   }
 }
 
-
-.wrapper {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 750px;
-  border: 3px solid #ddd;
-  border-radius: 5px;
+button.button:hover {
+  color: var(--clr-white);
+  background-color: var(--clr-green);
 }
 
-
-footer {
-  margin-top: auto;
-  padding: 1.5rem .5rem;
-}
 
 .attribution { font-size: 13px; text-align: center; }
 .attribution a { color: var(--clr-red); }
 
 /* use kevin powell even columns w/flex box styling */
+
+.header {
+  display: grid;
+  place-content: center;
+}
 
 .form-container {
   padding: 1.5em;
@@ -164,7 +162,7 @@ footer {
   flex-direction: column;
   align-items: center;
   gap: 1em;
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
 }
 
 .input-container {
@@ -173,17 +171,31 @@ footer {
   gap: 1em;
 }
 
-.seed-color {
-  
+.input {
+  font-size: 16px;
+  font-size: max(16px, 1em);
+  font-family: inherit;
+  border: 2px solid var(--clr-light-blue);
+  border-radius: 4px;
+  line-height: 1;
+  background: var(--clr-light-blue);
+}
+
+.seed-color-input {
+  min-height: 44px;
+  padding: 0.2em;
+  cursor: pointer;
+  border: none;
 }
 
 .scheme-select {
-  border: 2px solid #ddd;
-  padding-left: .25em;
+  border: .2em solid var(--clr-light-blue);
+  padding: 0.25em 0.5em;
   text-transform: uppercase;
   letter-spacing: 1.3px;
   color: #fff;
   background: transparent;
+  cursor: pointer;
 
 }
 
@@ -218,3 +230,9 @@ footer {
   font-weight: 700;
 }
 
+
+
+footer {
+  margin-top: auto;
+  padding: 1.5rem .5rem;
+}

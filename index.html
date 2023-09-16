@@ -12,14 +12,14 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
+  <header class="header">
     <h1 class="sr-only">Color Scheme Generator</h1>
     <div class="form-container">
       <form class="scheme-form">
         <div class="input-container">
-          <input type="color" id="color-input" class="seed-color" name="color-input" value="#f55a5a">
+          <input type="color" id="seed-color-input" class="input seed-color-input" name="color-input" value="#4B3F72">
           <!-- select color scheme -->
-          <select name="scheme-select" id="scheme-select" class="scheme-select">
+          <select name="scheme-select" id="scheme-select" class="input scheme-select">
             <option value="monochrome">Monochrome</option>
             <option value="monochrome-dark">Monochrome-dark</option>
             <option value="monochrome-light">Monochrome-light</option>
@@ -37,7 +37,13 @@
   </header>
 
   <main>
-    <div class="colors-container"></div>
+    <div class="colors-container">
+      <div class="color-bar bar-1"></div>
+      <div class="color-bar bar-2"></div>
+      <div class="color-bar bar-3"></div>
+      <div class="color-bar bar-4"></div>
+      <div class="color-bar bar-5"></div>
+    </div>
   </main>
 
   <!-- <main>
