@@ -56,20 +56,8 @@ function generateColors() {
       let colorsHtml = ''
       // console.log(colorCount) // debugging
       // use map method on data.colors array to generate html
-      // *** ToDo: make this a seperate function (displayColors)
-      // Note: this doesn't need to be a map function (not using the returned array)
-      data.colors.map((color, index) => {
-        colorsHtml += `
-          <div id="bar-${index + 1}" class="color-bar" style="background-color: ${color.hex.value};">
-            <span style="display:none;">${color.hex.value}</span>
-          </div>
-          <div class="hex-code-div flex">
-            <p id="hex-${index + 1}" class="hex-code">${color.hex.value}</p>
-          </div>
-          `
-      }) // use .join method here
-      colorResultsGrid.innerHTML = colorsHtml;
 
+      // *** ToDo: see if there's a cleaner way to do this...
       // get generated hexCodes and pass to addClickToCopy function
       const hexCodes = [...document.querySelectorAll('.hex-code')]; // spread to array
       addClickToCopy(hexCodes);
@@ -78,7 +66,21 @@ function generateColors() {
 
 // Display colors HTML
 function displayColors(colors) {
-  
+  // take in colorsData
+  // destructure data, build html elements
+  // *** ToDo: make this a seperate function (displayColors)
+  // Note: this doesn't need to be a map function (not using the returned array)
+  data.colors.map((color, index) => {
+    colorsHtml += `
+      <div id="bar-${index + 1}" class="color-bar" style="background-color: ${color.hex.value};">
+        <span style="display:none;">${color.hex.value}</span>
+      </div>
+      <div class="hex-code-div flex">
+        <p id="hex-${index + 1}" class="hex-code">${color.hex.value}</p>
+      </div>
+      `
+  }) // use .join method here
+  colorResultsGrid.innerHTML = colorsHtml;
 }
 
 // add event listener to getColorsBtn
