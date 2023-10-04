@@ -15,8 +15,8 @@
   <div class="container">
 
     <header class="header">
-
-      <form class="scheme-form">
+      <h1 class="sr-only">Color Scheme Generator</h1>
+      <form class="form">
         <div class="input-container">
           <input type="color" id="seed-color-input" class="input seed-color-input" name="color-input" value="#4B3F72">
           <!-- select color scheme -->
@@ -31,17 +31,14 @@
             <option value="quad">Quad</option>
           </select>
         </div>
-        <!-- generate color scheme button -->
         <button id="get-scheme-btn" class="button">Get color scheme</button>
       </form>
 
     </header>
 
-    <main>
+    <main class="palette">
       <div class="colors">
-        <div class="color-bar bar-1">
-          <div class="color-meta"></div>
-        </div>
+        <div class="color-bar bar-1"></div>
         <div class="color-bar bar-2"></div>
         <div class="color-bar bar-3"></div>
         <div class="color-bar bar-4"></div>
@@ -52,35 +49,6 @@
 
 
   <!-- <h1 class="sr-only">Color Scheme Generator</h1> -->
-
-  <!-- <main>
-    <div class="wrapper">
-      <div class="color-select-container flex">
-        <div>
-          <input type="color" id="color-input" name="color-input" value="#f55a5a">
-        </div>
-        <select name="scheme-select" id="scheme-select">
-          <option value="monochrome">Monochrome</option>
-          <option value="monochrome-dark">Monochrome-dark</option>
-          <option value="monochrome-light">Monochrome-light</option>
-          <option value="analogic">Analogic</option>
-          <option value="complement">Complement</option>
-          <option value="analogic-complement">Analogic-complement</option>
-          <option value="triad">Triad</option>
-          <option value="quad">Quad</option>
-        </select>
-        <select name="count-select" id="count-select">
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-        </select>
-        <button id="get-scheme-btn">Get color scheme</button>
-      </div>
-      <div class="color-result-container grid" id="color-results-grid">
-      </div>
-    </div>
-  </main> -->
 
   <!-- <footer>
     <div class="attribution">
