@@ -1,90 +1,61 @@
-const colorInput = document.querySelector('#color-input');
-const schemeSelect = document.querySelector('#scheme-select');
-// const countSelect = document.querySelector('#count-select')
-const getColorsBtn = document.querySelector('#get-scheme-btn');
-const colorResultsGrid = document.querySelector('#color-results-grid');
-let seedColor = colorInput.value.substring(1);
-let colorMode = schemeSelect.value;
-let colorCount = countSelect.value
 
-// ToDo: Limit amount of global variables - contain in function where possible
+const BASE_URL = 'https://www.thecolorapi.com/scheme?';
+const colorForm = document.getElementById('color-form');
 
-// get new seedColor value
-function getSeedColor(e) {
-  seedColor = e.target.value.substring(1);
-  return seedColor;
+async function fetchColors(seedColor, colorMode) {
+  const res = await fetch(`${BASE_URL}hex=${seedColor}&mode=${colorMode}`)
+  const data = await res.json()
+  console.log(data)
+  
+  renderColors(data.colors)
+    
 }
-colorInput.addEventListener('change', getSeedColor); // update val on change
 
-// get new colorMode value
-function getColorMode(e) {
-  colorMode = e.target.value;
-  return colorMode;
-}
-schemeSelect.addEventListener('change', getColorMode); // update val on change
-
-// get number of colors
-function getColorCount(e) {
-  colorCount = e.target.value;
-  return colorCount;
-}
-countSelect.addEventListener('change', getColorCount); // update val on change
-
-// *** ToDo: update click to copy - click color => show copy icon => click icon to copy??
-function addClickToCopy(hexCodes) {
-  hexCodes.forEach((hexCode) => { // loop through and add listener
-    // console.log(hexCode) // debugging
-    hexCode.addEventListener('click', (e) => {
-      let copyText = e.target.textContent;
-
-      navigator.clipboard.writeText(copyText).then(() => {
-        alert(`${copyText} copied to clipboard!`); 
-        // *** ToDo: make this a html dialog element? with setTimeout to hide after 3-5 seconds
-      })
-    })
-  })  
+// Get color input and mode selector values
+function getColorValues() {
+  const seedColor = document.getElementById('color-input').value.slice(1);
+  const colorMode = document.getElementById('mode-select').value;
+  fetchColors(seedColor, colorMode);
 }
 
 
+function renderColors(colors) {
+  const colorBars = document.getElementById('color-bars');
+  let colorsHtml = '';
 
-// *** ToDo: make this an async function
-function generateColors() {
-  fetch(`https://www.thecolorapi.com/scheme?hex=${seedColor}&format=json&mode=${colorMode}&count=${colorCount}`)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data)
-      let colorsHtml = ''
-      // console.log(colorCount) // debugging
-      // use map method on data.colors array to generate html
-
-      // *** ToDo: see if there's a cleaner way to do this...
-      // get generated hexCodes and pass to addClickToCopy function
-      const hexCodes = [...document.querySelectorAll('.hex-code')]; // spread to array
-      addClickToCopy(hexCodes);
-  })
-}
-
-// Display colors HTML
-function displayColors(colors) {
-  // take in colorsData
-  // destructure data, build html elements
-  // *** ToDo: make this a seperate function (displayColors)
-  // Note: this doesn't need to be a map function (not using the returned array)
-  data.colors.map((color, index) => {
+  colors.forEach((color, i) => {
     colorsHtml += `
-      <div id="bar-${index + 1}" class="color-bar" style="background-color: ${color.hex.value};">
-        <span style="display:none;">${color.hex.value}</span>
+      <div id="color-${i + 1}" class="color-bar" style="background-color: ${color.hex.value};">
       </div>
-      <div class="hex-code-div flex">
-        <p id="hex-${index + 1}" class="hex-code">${color.hex.value}</p>
-      </div>
-      `
-  }) // use .join method here
-  colorResultsGrid.innerHTML = colorsHtml;
+    `
+  })
+
+  colorBars.innerHTML = colorsHtml;
+
 }
 
-// add event listener to getColorsBtn
-getColorsBtn.addEventListener('click', generateColors);
-// generateColors(); // call generateColors to set initial placeholder values
 
-// *** ToDo - use form.reset() to reset form values? 
+
+
+// *** ToDo: create getFormData function?
+// Event listener
+colorForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  // const seedColor = document.getElementById('color-input').value.slice(1);
+  // const colorMode = document.getElementById('mode-select').value;
+  // console.log(seedColor)
+  // console.log(colorMode)
+
+  // fetchColors(seedColor, colorMode)
+
+  getColorValues();
+
+})
+
+getColorValues();
+
+// fetchColors();
+
+// ToDo: Add form reset on page load? 
+// document.getElementById('color-form').reset();

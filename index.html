@@ -16,11 +16,11 @@
 
     <header class="header">
       <h1 class="sr-only">Color Scheme Generator</h1>
-      <form class="form">
+      <form class="form" id="color-form">
         <div class="input-container">
-          <input type="color" id="seed-color-input" class="input seed-color-input" name="color-input" value="#4B3F72">
+          <input type="color" id="color-input" class="input color-input" name="color-input" value="#7692FF">
           <!-- select color scheme -->
-          <select name="scheme-select" id="scheme-select" class="input scheme-select">
+          <select name="mode-select" id="mode-select" class="input mode-select">
             <option value="monochrome">Monochrome</option>
             <option value="monochrome-dark">Monochrome-dark</option>
             <option value="monochrome-light">Monochrome-light</option>
@@ -37,7 +37,7 @@
     </header>
 
     <main class="palette">
-      <div class="colors">
+      <div id="color-bars" class="colors">
         <div class="color-bar bar-1"></div>
         <div class="color-bar bar-2"></div>
         <div class="color-bar bar-3"></div>
@@ -47,16 +47,6 @@
     </main>
   </div>
 
-
-  <!-- <h1 class="sr-only">Color Scheme Generator</h1> -->
-
-  <!-- <footer>
-    <div class="attribution">
-      Solo Project from <a href="https://www.scrimba.com" target="_blank">Scrimba</a>. 
-      Coded by <a href="https://github.com/mattpahuta" target="_blank">Matt Pahuta</a>.
-    </div>
-  </footer> -->
-
-  <!-- <script src="app.js"></script> -->
+  <script src="app.js"></script>
 </body>
 </html>

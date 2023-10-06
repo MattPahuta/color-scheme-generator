@@ -21,14 +21,13 @@
   
   /* COLORS */
   /* Primary Colors */
-  --clr-space-cadet: #1F2041;
-  --clr-light-blue: #A6D9F7;
-  --clr-bg: #c5cae9;
-  --clr-purple: #4B3F72;
-  --clr-african-violet: #A393BF;
-  --clr-green: #417B5A;
+  --clr-oxford-blue: #3D518C;
+  --clr-light-blue: #ABD2FA;
+  --clr-bg-primary: #091540;
 
-
+  /* *** swap these btn bgs */
+  --clr-btn-bg: #3D518C;
+  --clr-btn-hover: #ABD2FA;
   /* Neutral Colors */
   --clr-white: hsl(0, 0%, 100%);
   --clr-white-smoke: #F0F2EF;
@@ -90,7 +89,7 @@ body {
 
   font-family: var(--ff-primary);
   font-size: var(--fs-400);
-  background-color: var(--clr-space-cadet);
+  background-color: var(--clr-bg-primary);
   color: var(--clr-black);
 
   user-select: none;
@@ -121,8 +120,8 @@ button.button {
   align-items: center;
   justify-content: center;
 
-  background-color: var(--clr-light-blue);
-  color: var(--clr-black);
+  background-color: var(--clr-btn-bg);
+  color: var(--clr-white);
   border-radius: 4px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
 
@@ -144,7 +143,7 @@ button.button {
 
 button.button:hover {
   color: var(--clr-white);
-  background-color: var(--clr-green);
+  background-color: var(--clr-btn-hover);
 }
 
 
@@ -198,21 +197,20 @@ button.button:hover {
   background: var(--clr-light-blue);
 }
 
-.seed-color-input {
+.color-input {
   min-height: 44px;
-  padding: 0.2em;
   cursor: pointer;
   border: none;
 }
 
-.scheme-select {
+.mode-select {
   width: 100%;
   max-width: 300px;
   border: .2em solid var(--clr-light-blue);
   padding: 0.45em 0.5em;
   text-transform: uppercase;
   letter-spacing: 1.3px;
-  color: var(--clr-space-cadet);
+  color: var(--clr-oxford-blue );
   background: var(--clr-white);
   /* background-color: var(--clr-light-blue); */
   cursor: pointer;
@@ -257,7 +255,7 @@ button.button:hover {
   .container {
     margin: auto;
     padding: 1.5em;
-    width: 90%;
+    width: 95%;
     max-width: 920px;
     height: 90%;
     max-height: 800px;
