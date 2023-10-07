@@ -2,6 +2,8 @@
 
 This is a solution to the Color Scheme Generator solo project, as part of the Scrimba Frontend Developer Career Path. 
 
+A minimilist color palette generator that uses the browser's built-in color picker and the color API to generate a scheme of 5 colors, according to the selected color mode rule.
+
 ## Overview
 
 ### Project Requirements 

@@ -12,13 +12,13 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <h1 class="sr-only">Color Scheme Generator</h1>
   <div class="container">
 
     <header class="header">
-      <h1 class="sr-only">Color Scheme Generator</h1>
       <form class="form" id="color-form">
         <div class="input-container">
-          <input type="color" id="color-input" class="input color-input" name="color-input" value="#7692FF">
+          <input type="color" id="color-input" class="input color-input" name="color-input" value="#1B2CC1">
           <!-- select color scheme -->
           <select name="mode-select" id="mode-select" class="input mode-select">
             <option value="monochrome">Monochrome</option>
@@ -33,18 +33,15 @@
         </div>
         <button id="get-scheme-btn" class="button">Get color scheme</button>
       </form>
-
     </header>
+    <div id="color-bars" class="colors">
+      <div class="color-bar bar-1"></div>
+      <div class="color-bar bar-2"></div>
+      <div class="color-bar bar-3"></div>
+      <div class="color-bar bar-4"></div>
+      <div class="color-bar bar-5"></div>
+    </div>
 
-    <main class="palette">
-      <div id="color-bars" class="colors">
-        <div class="color-bar bar-1"></div>
-        <div class="color-bar bar-2"></div>
-        <div class="color-bar bar-3"></div>
-        <div class="color-bar bar-4"></div>
-        <div class="color-bar bar-5"></div>
-      </div>
-    </main>
   </div>
 
   <script src="app.js"></script>
