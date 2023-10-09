@@ -88,12 +88,10 @@ body {
   height: 100vh;
   display: grid;
   align-items: center;
-
   font-family: var(--ff-primary);
   font-size: var(--fs-400);
   background-color: var(--clr-bg-primary);
   color: var(--clr-black);
-
   user-select: none;
 }
 
@@ -102,21 +100,17 @@ body {
   margin-inline: auto;
   background: var(--clr-white);
   height: 100%;
-
   display: grid;
   grid-template-rows: min-content 1fr;
 }
 
 
 @media (min-width: 800px) {
-  
   .container {
     max-height: 800px;
     padding: 1.5rem;
     border-radius: var(--br-soft);
   }
-
- 
 }
 
 /* Utility Classes and Components */
@@ -157,6 +151,7 @@ button.button {
   font-weight: var(--fw-500);
   text-align: center;
   line-height: 1.1;
+  transition: 150ms all ease-in-out;
 }
 
 @media screen and (-ms-high-contrast: active) {
@@ -219,22 +214,17 @@ button.button:hover {
   letter-spacing: 1.3px;
   color: var(--clr-gray-blue);
   background: var(--clr-white);
-  /* background-color: var(--clr-light-blue); */
   cursor: pointer;
-
 }
 
 /* color selection section styles */
 
-
-
 /* For testing only */
-.bar-1 { background-color: #417B5A;}
+/* .bar-1 { background-color: #417B5A;}
 .bar-2 { background-color: #4B3F72;}
 .bar-3 { background-color: #A393BF;}
 .bar-4 { background-color: #A6D9F7;}
-.bar-5 { background-color: #c0342c;}
-
+.bar-5 { background-color: #c0342c;} */
 
 
 .colors {
@@ -248,8 +238,32 @@ button.button:hover {
   flex: 1;
 }
 
-@media (min-width: 800px) {
+.color-bar {
+  padding: 0 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.color-bar {
+  cursor: pointer;
+}
+
+.color-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.color-hex-val {
+  font-size: var(--fs-500);
+}
+
+.color-name {
+  font-size: var(--fs-300);
+}
+
+@media (min-width: 800px) {
 
   .header {
     padding: 0 0 1.5em 0;
@@ -265,5 +279,17 @@ button.button:hover {
 
   .colors {
     flex-direction: row;
+
+  }
+
+  .color-bar {
+    padding-bottom: 3em;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 2em;
+  }
+
+  .color-meta {
+    text-align: center;
   }
 }

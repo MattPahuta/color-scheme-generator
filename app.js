@@ -5,7 +5,7 @@ const colorForm = document.getElementById('color-form');
 async function fetchColors(seedColor, colorMode) {
   const res = await fetch(`${BASE_URL}hex=${seedColor}&mode=${colorMode}`)
   const data = await res.json()
-  console.log(data)
+  console.log(data); // debug
   
   renderColors(data.colors)
     
@@ -18,14 +18,21 @@ function getColorValues() {
   fetchColors(seedColor, colorMode);
 }
 
-
+// Render colors 
 function renderColors(colors) {
   const colorBars = document.getElementById('color-bars');
   let colorsHtml = '';
 
+  // Destructure colors data? - within loop
   colors.forEach((color, i) => {
+    
     colorsHtml += `
       <div id="color-${i + 1}" class="color-bar" style="background-color: ${color.hex.value};">
+        <div class="color-meta" style="color: ${color.contrast.value};">
+          <span class="color-hex-val">${color.hex.value}</span>
+          <span class="color-name">${color.name.value}</span>
+        </div>
+        <i class="fa-regular fa-copy" style="color: ${color.contrast.value};"></i>
       </div>
     `
   })
@@ -34,7 +41,14 @@ function renderColors(colors) {
 
 }
 
-
+// Add click-to-copy
+// .color-bar
+function addClickToCopy() {
+  const colorBars = document.getElementsByClassName('color-bar');
+  [...colorBars].forEach(color => {
+    console.log(color)
+  })
+}
 
 
 // *** ToDo: create getFormData function?
