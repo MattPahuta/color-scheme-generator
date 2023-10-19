@@ -85,9 +85,6 @@ p, h1, h2, h3, h4, h5, h6 {
 
 /* Base Styles */
 body {
-  height: 100vh;
-  display: grid;
-  align-items: center;
   font-family: var(--ff-primary);
   font-size: var(--fs-400);
   background-color: var(--clr-bg-primary);
@@ -95,7 +92,13 @@ body {
   user-select: none;
 }
 
-.container {
+.wrapper {
+  height: 100vh;
+  display: grid;
+  align-items: center;
+}
+
+.app-container {
   width: min(100%, 60rem);
   margin-inline: auto;
   background: var(--clr-white);
@@ -106,9 +109,16 @@ body {
 
 
 @media (min-width: 800px) {
-  .container {
+  .wrapper {
+    padding: 0 1rem;
+  }
+
+  .app-container {
     max-height: 800px;
     padding: 1.5rem;
+    background: transparent;
+    /* ToDo: dynamically update border color */
+    border: 5px solid #1B2CC1;
     border-radius: var(--br-soft);
   }
 }
@@ -261,6 +271,32 @@ button.button:hover {
 
 .color-name {
   font-size: var(--fs-300);
+}
+
+/* Copy message dialog */
+/* .copy-message {
+  display: none;
+  position: absolute;
+  place-self: center;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: var(--clr-white);
+  border-radius: 4px;
+  font-size: var(--fs-500);
+  padding: 1em 1.5em;
+} */
+
+.copy-dialog {
+  z-index: 10;
+  color: var(--clr-white);
+  background: rgba(0, 0, 0, 0.6);
+  outline: none;
+  border: 3px solid var(--clr-white);
+  border-radius: 4px;
+  font-size: var(--fs-500);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
 }
 
 @media (min-width: 800px) {
