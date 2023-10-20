@@ -21,9 +21,7 @@ function render(colors) {
   // apply selected color to app border
   document.getElementById('app-container').style.borderColor = colorInput.value;
 
-  const colorBars = document.getElementById('color-bars');
   let colorsHtml = '';
-
   // Destructure colors data? - within loop
   // Use createElement instead of innerHtml?
   colors.forEach((color, i) => { 
@@ -37,11 +35,17 @@ function render(colors) {
       </div>
     `
   });
-
   // apply colors html to container
-  colorBars.innerHTML = colorsHtml;
+  document.getElementById('color-bars').innerHTML = colorsHtml;
   addClickToCopy(); // add click handlers to rendered colors for copy/paste
 }
+
+// *** ToDo: 
+/*
+  - revise fetch function to utilize URLSearchParams 
+  - add data attributes to generated color bars to hold hex code (data-hex)
+  - add tab index to generated color bars to allow for tab=>enter=>copy (tabindex="0")
+*/
 
 // Add click-to-copy
 function addClickToCopy() {
@@ -62,14 +66,11 @@ function addClickToCopy() {
   });
 }
 
-// *** ToDo: create getFormData function?
 // Event listener
 colorForm.addEventListener('submit', (e) => {
   e.preventDefault();
   getColorValues();
 })
 
+colorForm.reset();
 getColorValues();
-
-// ToDo: Add form reset on page load? 
-// document.getElementById('color-form').reset();
