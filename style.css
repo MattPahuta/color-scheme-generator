@@ -260,6 +260,8 @@ button.button:hover {
   align-items: center;
 }
 
+/* ToDo: add focus state for bars, reset outline, use inset outline/border? */
+
 .color-bar {
   cursor: pointer;
 }

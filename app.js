@@ -1,20 +1,34 @@
-const BASE_URL = 'https://www.thecolorapi.com/scheme?hex=';
+// Global variables
 const colorForm = document.getElementById('color-form');
 const colorInput = document.getElementById('color-input');
 
-async function fetchColors(seedColor, colorMode) {
-  const res = await fetch(`${BASE_URL}${seedColor}&mode=${colorMode}`)
-  const data = await res.json()
-  console.log(data); // debug
-  render(data.colors)
+
+// Get colors from API v2.0
+async function getColors() {
+  // reference user input values
+  const seedColor = colorInput.value;
+  const colorMode = document.getElementById('mode-select').value;
+  // build search query paramaters
+  const params = {
+    hex: seedColor,
+    mode: colorMode
+  };
+  // build query string for use in API call
+  // utilize URLSearchParams constructor w/toString method
+  // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
+  const queryString = new URLSearchParams(params).toString();
+  // build URL for API call
+  const url = `https://www.thecolorapi.com/scheme?${queryString}`;
+  // fetch color data from API
+  const res = await fetch(url);
+  const data = await res.json();
+  console.log(data) // debug
+  const { colors } = data; // extract colors from data object
+  // call render function, pass in colors array
+  render(colors)
+
 }
 
-// Get color input and mode selector values
-function getColorValues() {
-  const seedColor = colorInput.value.slice(1);
-  const colorMode = document.getElementById('mode-select').value;
-  fetchColors(seedColor, colorMode);
-}
 
 // Render colors 
 function render(colors) {
@@ -22,16 +36,17 @@ function render(colors) {
   document.getElementById('app-container').style.borderColor = colorInput.value;
 
   let colorsHtml = '';
-  // Destructure colors data? - within loop
   // Use createElement instead of innerHtml?
   colors.forEach((color, i) => { 
+    console.log(color) // debug
+    const { hex, contrast, name} = color;
     colorsHtml += `
-      <div id="color-${i + 1}" class="color-bar" style="background-color: ${color.hex.value};">
-        <div class="color-meta" style="color: ${color.contrast.value};">
-          <span class="color-code">${color.hex.value}</span>
-          <span class="color-name">${color.name.value}</span>
+      <div class="color-bar" style="background-color: ${hex.value};" tabindex="0" data-hex=${hex.value}>
+        <div class="color-meta" style="color: ${contrast.value};">
+          <span class="color-code">${hex.value}</span>
+          <span class="color-name">${name.value}</span>
         </div>
-        <i class="fa-regular fa-copy" style="color: ${color.contrast.value};"></i>
+        <i class="fa-regular fa-copy" style="color: ${contrast.value};"></i>
       </div>
     `
   });
@@ -42,12 +57,12 @@ function render(colors) {
 
 // *** ToDo: 
 /*
-  - revise fetch function to utilize URLSearchParams 
   - add data attributes to generated color bars to hold hex code (data-hex)
   - add tab index to generated color bars to allow for tab=>enter=>copy (tabindex="0")
+  - revise copy function to react to clicks and enter
 */
 
-// Add click-to-copy
+// Add click-to-copy - v1.0
 function addClickToCopy() {
   const colorBars = document.getElementsByClassName('color-bar');
   [...colorBars].forEach(color => {
@@ -69,8 +84,8 @@ function addClickToCopy() {
 // Event listener
 colorForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  getColorValues();
+  getColors();
 })
 
 colorForm.reset();
-getColorValues();
+getColors();
