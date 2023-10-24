@@ -2,48 +2,26 @@
 /* Custom Variables */
 /* **************** */
 :root {
-  /* 
-  font-family: 'Poppins', sans-serif; 
-  font-family: 'Nunito', sans-serif; */
   /* FONTS */
   --ff-primary: 'Poppins', Arial, Helvetica, sans-serif;
   /* FONT SIZES */
   --fs-300: 0.9125rem;
   --fs-400: 1rem;
-  --fs-500: 1.25rem;
-  --fs-600: 2rem;
-  --fs-700: 2.125rem;
-  --fs-800: 2.5rem;
-  /* Font Weights */
+  --fs-500: 1.125rem;
+  --fs-600: 1.25rem;
+  /* FONT WEIGHTS */
   --fw-400: 400;
-  --fw-500: 500;
-  --fw-600: 600;
-  
+  --fw-500: 500;      
   /* COLORS */
-  /* Primary Colors */
-  --clr-gray-blue: #3D518C;
-  --clr-light-blue: #ABD2FA;
-  --clr-persian-blue: #1B2CC1;
-  --clr-cornflower-blue: #7692FF;
-  --clr-bg-primary: #091540;
-
-  /* *** swap these btn bgs */
-  --clr-btn-bg: #3D518C;
-  --clr-btn-hover: #ABD2FA;
-
-  /* Neutral Colors */
-  --clr-white: hsl(0, 0%, 100%);
-
-  --clr-silver: hsl(0, 0%, 80%); 
-
-  --clr-black: hsl(0, 0%, 0%);
-
+  --clr-neutral-900: #000000;
+  --clr-neutral-200: #F1F2EE;
+  --clr-neutral-100: #FFFFFF;
+  --clr-background: #27272c;
+  --clr-primary: #48ACF0;
+  --clr-on-primary: #0B132B;
   /* BORDER RADIUS */
   --br-extra-soft: 4px;
   --br-soft: 8px;
-  --br-round: 50%;
-  
-
 }
 
 /* RESET */
@@ -87,8 +65,8 @@ p, h1, h2, h3, h4, h5, h6 {
 body {
   font-family: var(--ff-primary);
   font-size: var(--fs-400);
-  background-color: var(--clr-bg-primary);
-  color: var(--clr-black);
+  background-color: var(--clr-background);
+  color: var(--clr-background);
   user-select: none;
 }
 
@@ -101,25 +79,19 @@ body {
 .app-container {
   width: min(100%, 60rem);
   margin-inline: auto;
-  background: var(--clr-white);
   height: 100%;
   display: grid;
   grid-template-rows: min-content 1fr;
 }
 
-
 @media (min-width: 800px) {
   .wrapper {
     padding: 0 1rem;
   }
-
   .app-container {
     max-height: 800px;
     padding: 1.5rem;
-    background: transparent;
-    /* ToDo: dynamically update border color */
-    /* border: 5px solid #1B2CC1; */
-    border-width: 5px;
+    border-width: 8px;
     border-style: solid;
     border-radius: var(--br-soft);
   }
@@ -139,22 +111,18 @@ body {
   border: 0 !important;
 }
 
-button.button {
-  border: none;
-  background-color: transparent;
-  font-family: inherit;
-  padding: 0;
+.button {
   cursor: pointer;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  background-color: var(--clr-cornflower-blue);
-  color: var(--clr-black);
+  --button-background: var(--clr-primary);
+  --button-color: var(--clr-on-primary);
+  background-color: var(--button-background);
+  color: var(--button-color);
+  border: 2px solid transparent;
   border-radius: 4px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
-
   padding: 0.25em 0.75em;
   width: 100%;
   min-width: 10ch;
@@ -167,14 +135,21 @@ button.button {
 }
 
 @media screen and (-ms-high-contrast: active) {
-  button.button {
+  .button {
     border: 2px solid currentcolor;
   }
 }
 
-button.button:hover {
-  color: var(--clr-white);
-  background-color: var(--clr-gray-blue);
+.button:hover,
+.button:focus {
+  color: var(--button-background);
+  background-color: var(--button-color);
+  outline: none;
+  border-color: var(--button-background);
+}
+
+.button:focus {
+  box-shadow: 0 0 0 max(.15em, 2px) var(--button-color), 0 0 0 max(.3em,2px) var(--button-background);
 }
 
 .header {
@@ -201,47 +176,43 @@ button.button:hover {
 }
 
 .input {
-  font-size: 16px;
   font-size: max(16px, 1em);
   font-family: inherit;
-  border: 2px solid var(--clr-light-blue);
-  border-radius: 4px;
+  border-radius: var(--br-extra-soft);
   line-height: 1;
-  background: var(--clr-light-blue);
+  cursor: pointer;
 }
 
 .color-input {
+  background: var(--clr-background);
+  color: var(--clr-primary);
   min-height: 44px;
-  cursor: pointer;
-  border: none;
+  border: 2px solid;
 }
 
 .mode-select {
   width: 100%;
   max-width: 300px;
   appearance: none;
-  border: .2em solid var(--clr-light-blue);
+  border: 3px solid var(--clr-primary);
   padding: 0.5em;
   text-transform: uppercase;
   letter-spacing: 1.3px;
-  color: var(--clr-gray-blue);
-  background: var(--clr-white);
-  cursor: pointer;
-  background-image: url(assets/selector.svg);
+  color: var(--clr-neutral-900);
+  background: var(--clr-neutral-100);
+  background-image: url(../assets/selector.svg);
   background-repeat: no-repeat;
   background-position: 96%;
 }
 
+.input:focus {
+  border: 3px solid;
+  border-color: #FD5200;
+  outline: none;
+  box-shadow: 0 0 0 max(.15em, 2px) #FD5200;
+}
+
 /* color selection section styles */
-
-/* For testing only */
-/* .bar-1 { background-color: #417B5A;}
-.bar-2 { background-color: #4B3F72;}
-.bar-3 { background-color: #A393BF;}
-.bar-4 { background-color: #A6D9F7;}
-.bar-5 { background-color: #c0342c;} */
-
-
 .colors {
   height: 100%;
   display: flex;
@@ -258,12 +229,21 @@ button.button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 }
 
-/* ToDo: add focus state for bars, reset outline, use inset outline/border? */
+.color-bar:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 max(.25em, 2px) var(--clr-neutral-200);
+}
 
-.color-bar {
-  cursor: pointer;
+@media (min-width: 800px) {
+  .color-bar:hover {
+    outline: none;
+    scale: 101%;
+    border-radius: var(--br-extra-soft);
+    box-shadow: 0 0 0 max(.3em, 2px) var(--clr-neutral-200);
+  }
 }
 
 .color-meta {
@@ -272,8 +252,9 @@ button.button:hover {
   gap: 0.5rem;
 }
 
-.color-hex-val {
+.color-code {
   font-size: var(--fs-500);
+  font-weight: var(--fw-500);
 }
 
 .color-name {
@@ -282,12 +263,12 @@ button.button:hover {
 
 .copy-dialog {
   z-index: 10;
-  color: var(--clr-white);
+  color: var(--clr-neutral-100);
   background: rgba(0, 0, 0, 0.6);
   outline: none;
-  border: 3px solid var(--clr-white);
+  border: 3px solid var(--clr-neutral-100);
   border-radius: 4px;
-  font-size: var(--fs-500);
+  font-size: var(--fs-600);
   top: 50%;
   left: 50%;
   translate: -50% -50%;
