@@ -31,8 +31,8 @@ Project stretch goal:
 - Allow user to click on hex code to copy to clipboard
 
 Personal enhancements:
-- Mobile first design with specific layouts for mobile and desktop
-- Added accessibility enhancements, allowing for keyboard input to copy color codes
+- Customized design with distinct mobile and desktop layouts
+- Added accessibility enhancements plus allow keyboard input to copy color codes
 - Dynamic contrast color for Color result bar metadata (hex code, color name) and copy icon
 
 ### Screenshot
@@ -43,7 +43,7 @@ Personal enhancements:
 
 ### Links
 
-- [Scrimba Scrim](https://your-solution-url.com)
+- [Scrimba Scrim](https://scrimba.com/scrim/cyK8KgSe)
 - [Live Site](https://color-scheme-generator-mattpahuta.vercel.app/)
 
 ## My process
@@ -97,5 +97,5 @@ function copyHex(e) {
 
 ## Author
 
-- Website - [Matt Pahuta](https://www.mattpahuta.com)
-- LinkedIn - [Matt Pahuta](www.linkedin.com/in/mattpahuta)
+- Website - [mattpahuta.com](https://www.mattpahuta.com)
+- LinkedIn - [LinkedIn](www.linkedin.com/in/mattpahuta)
