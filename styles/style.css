@@ -112,8 +112,6 @@ body {
   border: 0 !important;
 }
 
-
-
 .header {
   padding: 1.5em 1em;
   display: flex;
@@ -172,10 +170,8 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  --button-background: var(--clr-primary);
-  --button-color: var(--clr-on-primary);
-  background-color: var(--button-background);
-  color: var(--button-color);
+  background-color: var(--clr-primary);
+  color: var(--clr-on-primary);
   border: 2px solid transparent;
   border-radius: 4px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
@@ -198,13 +194,7 @@ body {
 
 .button:hover,
 .button:focus-visible {
-  color: var(--button-background);
-  background-color: var(--button-color);
   border-color: var(--button-background);
-}
-
-.button:active {
-  transform: translateY(2px);
 }
 
 .button:focus-visible,

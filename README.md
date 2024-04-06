@@ -32,7 +32,7 @@ Project stretch goal:
 
 Personal enhancements:
 - Customized design with distinct mobile and desktop layouts
-- Added accessibility enhancements plus allow keyboard input to copy color codes
+- Added accessibility enhancements to allow color code copy by keyboard
 - Dynamic contrast color for Color result bar metadata (hex code, color name) and copy icon
 
 ### Screenshot
